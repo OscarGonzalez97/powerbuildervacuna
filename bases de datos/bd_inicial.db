@@ -1,0 +1,355 @@
+
+CREATE TABLE profesion (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                prioridad SMALLINT NOT NULL,
+                CONSTRAINT profesion_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE tipo_documento (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT tipo_documento_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE barrio (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT barrio_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE departamento (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT departamento_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE localidad (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT localidad_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE persona (
+                id_persona BIGINT NOT NULL,
+                id_profesion BIGINT NOT NULL,
+                id_tipo_documento BIGINT NOT NULL,
+                id_departamento BIGINT NOT NULL,
+                id_localidad BIGINT NOT NULL,
+                id_barrio BIGINT NOT NULL,
+                nro_documento VARCHAR NOT NULL,
+                nombre VARCHAR NOT NULL,
+                apellido VARCHAR NOT NULL,
+                fecha_nacimiento DATE NOT NULL,
+                domicilio VARCHAR NOT NULL,
+                enfermedad_base BIT NOT NULL,
+                embarazada BIT NOT NULL,
+                vacunada BIT NOT NULL,
+                CONSTRAINT persona_pk PRIMARY KEY (id_persona)
+);
+
+
+CREATE TABLE vacunatorio (
+                id BIGINT NOT NULL,
+                id_barrio BIGINT NOT NULL,
+                id_localidad BIGINT NOT NULL,
+                id_departamento BIGINT NOT NULL,
+                numero INTEGER NOT NULL,
+                nombre VARCHAR NOT NULL,
+                puntos_vacunacion INTEGER NOT NULL,
+                cantidad_x_dia INTEGER NOT NULL,
+                CONSTRAINT vacunatorio_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE almacen (
+                id BIGINT NOT NULL,
+                id_departamento BIGINT NOT NULL,
+                id_localidad BIGINT NOT NULL,
+                direccion VARCHAR NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT almacen_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE importadora (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT importadora_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE entidad_origen (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT entidad_origen_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE almacenamiento (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT almacenamiento_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE forma_aplicacion (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT forma_aplicacion_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE tipo_vacuna (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT tipo_vacuna_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE empresa_fabricante (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT empresa_fabricante_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE pais (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT pais_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE organo_internacional (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT organo_internacional_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE vacuna (
+                id BIGINT NOT NULL,
+                id_pais BIGINT NOT NULL,
+                id_empresa_fabricante BIGINT NOT NULL,
+                id_organo_internacional BIGINT NOT NULL,
+                id_tipo_vacuna BIGINT NOT NULL,
+                id_forma_aplicacion BIGINT NOT NULL,
+                id_almacenamiento BIGINT NOT NULL,
+                nombre_comercial VARCHAR NOT NULL,
+                nombre_cientifico VARCHAR NOT NULL,
+                temperatura FLOAT,
+                dias_minimo INTEGER,
+                dias_maximo INTEGER,
+                edad_minima INTEGER,
+                edad_maxima INTEGER,
+                embarazadas BIT NOT NULL,
+                observaciones VARCHAR,
+                CONSTRAINT vacuna_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE lote (
+                id BIGINT NOT NULL,
+                id_entidad_origen BIGINT NOT NULL,
+                id_importadora BIGINT NOT NULL,
+                id_vacuna BIGINT NOT NULL,
+                origen CHAR(1) NOT NULL,
+                cantidad INTEGER NOT NULL,
+                n_dosis INTEGER NOT NULL,
+                fecha_esperada DATE NOT NULL,
+                fecha_arribo DATE,
+                fecha_caducidad DATE NOT NULL,
+                CONSTRAINT lote_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE lote_x_almacen (
+                id BIGINT NOT NULL,
+                id_lote BIGINT NOT NULL,
+                id_almacen BIGINT NOT NULL,
+                cantidad INTEGER NOT NULL,
+                CONSTRAINT lote_x_almacen_pk PRIMARY KEY (id)
+);
+
+
+CREATE TABLE efecto_secundario (
+                id BIGINT NOT NULL,
+                nombre VARCHAR NOT NULL,
+                CONSTRAINT efecto_secundario_id PRIMARY KEY (id)
+);
+
+
+CREATE TABLE efecto_secundario_x_vacuna (
+                id BIGINT NOT NULL,
+                id_efecto_secundario BIGINT NOT NULL,
+                id_vacuna_1 BIGINT NOT NULL,
+                CONSTRAINT efecto_secundario_x_vacuna_pk PRIMARY KEY (id)
+);
+
+
+ALTER TABLE persona ADD CONSTRAINT profesion_persona_fk
+FOREIGN KEY (id_profesion)
+REFERENCES profesion (id)
+
+
+;
+
+ALTER TABLE persona ADD CONSTRAINT tipo_documento_persona_fk
+FOREIGN KEY (id_tipo_documento)
+REFERENCES tipo_documento (id)
+
+
+;
+
+ALTER TABLE vacunatorio ADD CONSTRAINT barrio_vacunatorio_fk
+FOREIGN KEY (id_barrio)
+REFERENCES barrio (id)
+
+
+;
+
+ALTER TABLE persona ADD CONSTRAINT barrio_persona_fk
+FOREIGN KEY (id_barrio)
+REFERENCES barrio (id)
+
+
+;
+
+ALTER TABLE almacen ADD CONSTRAINT departamento_almacen_fk
+FOREIGN KEY (id_departamento)
+REFERENCES departamento (id)
+
+
+;
+
+ALTER TABLE vacunatorio ADD CONSTRAINT departamento_vacunatorio_fk
+FOREIGN KEY (id_departamento)
+REFERENCES departamento (id)
+
+
+;
+
+ALTER TABLE persona ADD CONSTRAINT departamento_persona_fk
+FOREIGN KEY (id_departamento)
+REFERENCES departamento (id)
+
+
+;
+
+ALTER TABLE almacen ADD CONSTRAINT localidad_almacen_fk
+FOREIGN KEY (id_localidad)
+REFERENCES localidad (id)
+
+
+;
+
+ALTER TABLE vacunatorio ADD CONSTRAINT localidad_vacunatorio_fk
+FOREIGN KEY (id_localidad)
+REFERENCES localidad (id)
+
+
+;
+
+ALTER TABLE persona ADD CONSTRAINT localidad_persona_fk
+FOREIGN KEY (id_localidad)
+REFERENCES localidad (id)
+
+
+;
+
+ALTER TABLE lote_x_almacen ADD CONSTRAINT almacen_lote_x_almacen_fk
+FOREIGN KEY (id_almacen)
+REFERENCES almacen (id)
+
+
+;
+
+ALTER TABLE lote ADD CONSTRAINT importadora_lote_fk
+FOREIGN KEY (id_importadora)
+REFERENCES importadora (id)
+
+
+;
+
+ALTER TABLE lote ADD CONSTRAINT entidad_origen_lote_fk
+FOREIGN KEY (id_entidad_origen)
+REFERENCES entidad_origen (id)
+
+
+;
+
+ALTER TABLE vacuna ADD CONSTRAINT almacenamiento_vacuna_fk
+FOREIGN KEY (id_almacenamiento)
+REFERENCES almacenamiento (id)
+
+
+;
+
+ALTER TABLE vacuna ADD CONSTRAINT forma_aplicacion_vacuna_fk
+FOREIGN KEY (id_forma_aplicacion)
+REFERENCES forma_aplicacion (id)
+
+
+;
+
+ALTER TABLE vacuna ADD CONSTRAINT tipo_vacuna_vacuna_fk
+FOREIGN KEY (id_tipo_vacuna)
+REFERENCES tipo_vacuna (id)
+
+
+;
+
+ALTER TABLE vacuna ADD CONSTRAINT empresa_fabricante_vacuna_fk
+FOREIGN KEY (id_empresa_fabricante)
+REFERENCES empresa_fabricante (id)
+
+
+;
+
+ALTER TABLE vacuna ADD CONSTRAINT pais_vacuna_fk
+FOREIGN KEY (id_pais)
+REFERENCES pais (id)
+
+
+;
+
+ALTER TABLE vacuna ADD CONSTRAINT organo_internacional_vacuna_fk
+FOREIGN KEY (id_organo_internacional)
+REFERENCES organo_internacional (id)
+
+
+;
+
+ALTER TABLE efecto_secundario_x_vacuna ADD CONSTRAINT vacuna_efecto_secundario_x_vacuna_fk
+FOREIGN KEY (id_vacuna_1)
+REFERENCES vacuna (id)
+
+
+;
+
+ALTER TABLE lote ADD CONSTRAINT vacuna_lote_fk
+FOREIGN KEY (id_vacuna)
+REFERENCES vacuna (id)
+
+
+;
+
+ALTER TABLE lote_x_almacen ADD CONSTRAINT lote_lote_x_almacen_fk
+FOREIGN KEY (id_lote)
+REFERENCES lote (id)
+
+
+;
+
+ALTER TABLE efecto_secundario_x_vacuna ADD CONSTRAINT efecto_secundario_efecto_secundario_x_vacuna_fk
+FOREIGN KEY (id_efecto_secundario)
+REFERENCES efecto_secundario (id)
+
+
+;
