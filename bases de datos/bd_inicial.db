@@ -1,7 +1,7 @@
 
 CREATE TABLE profesion (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 prioridad SMALLINT NOT NULL,
                 CONSTRAINT profesion_pk PRIMARY KEY (id)
 );
@@ -9,28 +9,28 @@ CREATE TABLE profesion (
 
 CREATE TABLE tipo_documento (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT tipo_documento_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE barrio (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT barrio_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE departamento (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT departamento_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE localidad (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT localidad_pk PRIMARY KEY (id)
 );
 
@@ -42,11 +42,11 @@ CREATE TABLE persona (
                 id_departamento BIGINT NOT NULL,
                 id_localidad BIGINT NOT NULL,
                 id_barrio BIGINT NOT NULL,
-                nro_documento VARCHAR NOT NULL,
-                nombre VARCHAR NOT NULL,
-                apellido VARCHAR NOT NULL,
+                nro_documento VARCHAR (255) NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
+                apellido VARCHAR (255) NOT NULL,
                 fecha_nacimiento DATE NOT NULL,
-                domicilio VARCHAR NOT NULL,
+                domicilio VARCHAR (255) NOT NULL,
                 enfermedad_base BIT NOT NULL,
                 embarazada BIT NOT NULL,
                 vacunada BIT NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE vacunatorio (
                 id_localidad BIGINT NOT NULL,
                 id_departamento BIGINT NOT NULL,
                 numero INTEGER NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 puntos_vacunacion INTEGER NOT NULL,
                 cantidad_x_dia INTEGER NOT NULL,
                 CONSTRAINT vacunatorio_pk PRIMARY KEY (id)
@@ -71,64 +71,64 @@ CREATE TABLE almacen (
                 id BIGINT NOT NULL,
                 id_departamento BIGINT NOT NULL,
                 id_localidad BIGINT NOT NULL,
-                direccion VARCHAR NOT NULL,
-                nombre VARCHAR NOT NULL,
+                direccion VARCHAR (255) NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT almacen_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE importadora (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT importadora_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE entidad_origen (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT entidad_origen_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE almacenamiento (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT almacenamiento_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE forma_aplicacion (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT forma_aplicacion_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE tipo_vacuna (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT tipo_vacuna_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE empresa_fabricante (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT empresa_fabricante_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE pais (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT pais_pk PRIMARY KEY (id)
 );
 
 
 CREATE TABLE organo_internacional (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT organo_internacional_pk PRIMARY KEY (id)
 );
 
@@ -141,15 +141,15 @@ CREATE TABLE vacuna (
                 id_tipo_vacuna BIGINT NOT NULL,
                 id_forma_aplicacion BIGINT NOT NULL,
                 id_almacenamiento BIGINT NOT NULL,
-                nombre_comercial VARCHAR NOT NULL,
-                nombre_cientifico VARCHAR NOT NULL,
+                nombre_comercial VARCHAR (255) NOT NULL,
+                nombre_cientifico VARCHAR (255) NOT NULL,
                 temperatura FLOAT,
                 dias_minimo INTEGER,
                 dias_maximo INTEGER,
                 edad_minima INTEGER,
                 edad_maxima INTEGER,
                 embarazadas BIT NOT NULL,
-                observaciones VARCHAR,
+                observaciones VARCHAR (255),
                 CONSTRAINT vacuna_pk PRIMARY KEY (id)
 );
 
@@ -180,7 +180,7 @@ CREATE TABLE lote_x_almacen (
 
 CREATE TABLE efecto_secundario (
                 id BIGINT NOT NULL,
-                nombre VARCHAR NOT NULL,
+                nombre VARCHAR (255) NOT NULL,
                 CONSTRAINT efecto_secundario_id PRIMARY KEY (id)
 );
 
