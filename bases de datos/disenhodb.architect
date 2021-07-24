@@ -570,7 +570,7 @@
     <column id="COL153" populated="true" UUID="a803f001-5c56-48fc-afdc-95006109a695" autoIncrement="false" autoIncrementSequenceName="agendamiento_id_seq" defaultValue="" name="id_agendamiento" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL154" populated="true" UUID="df7ee4e2-0731-4407-a3a3-5eb592e81796" autoIncrement="false" autoIncrementSequenceName="almacen_id_almacen_seq" defaultValue="" name="id_almacen" nullable="0" physicalName="id_almacen" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL154" populated="true" UUID="df7ee4e2-0731-4407-a3a3-5eb592e81796" autoIncrement="false" autoIncrementSequenceName="almacen_id_almacen_seq_1" defaultValue="" name="id_almacen" nullable="0" physicalName="id_almacen" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
     <column id="COL155" populated="true" UUID="d1cf2f5a-2e8a-42f8-beda-1b3b16917b0d" autoIncrement="false" autoIncrementSequenceName="agendamiento_edad_minima_seq" defaultValue="" name="edad_minima" nullable="0" physicalName="edad_minima" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="5" userDefinedTypeUUID="69fb547f-e14c-4748-9746-4c0e9e94eb52" >
@@ -590,10 +590,10 @@
   <table id="TAB158" populated="true" UUID="5000177d-59fb-4f43-ad81-09936aef5d05" name="agendamiento_det" objectType="TABLE" physicalName="agendamiento_det" >
    <remarks></remarks>
    <folder id="FOLTAB1581" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL159" populated="true" UUID="7f669bee-e497-4437-a6b3-263091b99ac5" autoIncrement="false" autoIncrementSequenceName="agendamiento_id_seq" defaultValue="" name="id_agendamiento" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
+    <column id="COL159" populated="true" UUID="7f669bee-e497-4437-a6b3-263091b99ac5" autoIncrement="false" autoIncrementSequenceName="agendamiento_id_seq_1" defaultValue="" name="id_agendamiento" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="-5" userDefinedTypeUUID="433cc8af-284d-4abb-8ef7-08ebcb34dbf1" >
      <remarks></remarks>
     </column>
-    <column id="COL160" populated="true" UUID="2dd83240-6f5f-4a02-b16c-48fc30d015f6" autoIncrement="false" autoIncrementSequenceName="persona_nro_documento_seq" defaultValue="" name="nro_documento" nullable="0" physicalName="nro_documento" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL160" populated="true" UUID="2dd83240-6f5f-4a02-b16c-48fc30d015f6" autoIncrement="false" autoIncrementSequenceName="persona_nro_documento_seq_1" defaultValue="" name="nro_documento" nullable="0" physicalName="nro_documento" precision="0" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -710,11 +710,11 @@
   <table-pane table-ref="TAB97" x="741" y="634" bgColor="0xeeeeee" fgColor="0x0000cc" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB102" x="343" y="787" bgColor="0xeeeeee" fgColor="0x0000cc" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB107" x="37" y="540" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB114" x="70" y="723" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB114" x="55" y="675" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB125" x="1063" y="373" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB141" x="1101" y="630" bgColor="0xeeeeee" fgColor="0x0000cc" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB146" x="823" y="383" bgColor="0xeeeeee" fgColor="0x0000cc" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB152" x="598" y="767" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB152" x="580" y="816" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB158" x="920" y="778" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL172" pkConnection="0.17543859649122806" fkConnection="0.6442687747035574" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>
   <table-link relationship-ref="REL174" pkConnection="0.17543859649122806" fkConnection="0.616600790513834" rLineColor="0x000000" pkLabelText="" fkLabelText="" orientation="18"/>

@@ -353,3 +353,27 @@ REFERENCES efecto_secundario (id)
 
 
 ;
+
+CREATE TABLE agendamiento (
+                id BIGINT NOT NULL,
+                id_almacen BIGINT NOT NULL,
+                edad_minima SMALLINT NOT NULL,
+                CONSTRAINT agendamiento_pk PRIMARY KEY (id)
+);
+
+ALTER TABLE agendamiento ADD CONSTRAINT almacen_agendamiento_fk
+FOREIGN KEY (id_almacen)
+REFERENCES almacen (id);
+
+CREATE TABLE agendamiento_det (
+                id_agendamiento BIGINT NOT NULL,
+                nro_documento VARCHAR(255) NOT NULL,
+                CONSTRAINT agendamiento_det_pk PRIMARY KEY (id, nro_documento)
+);
+
+ALTER TABLE agendamiento_det ADD CONSTRAINT agendamiento_agendamiento_det_fk
+FOREIGN KEY (id_agendamiento)
+REFERENCES agendamiento (id);
+ALTER TABLE agendamiento_det ADD CONSTRAINT persona_agendamiento_det_fk
+FOREIGN KEY (nro_documento)
+REFERENCES persona (nro_documento);
