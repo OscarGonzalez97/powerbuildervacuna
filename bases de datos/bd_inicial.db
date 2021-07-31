@@ -377,3 +377,10 @@ REFERENCES agendamiento (id);
 ALTER TABLE agendamiento_det ADD CONSTRAINT persona_agendamiento_det_fk
 FOREIGN KEY (nro_documento)
 REFERENCES persona (nro_documento);
+
+ALTER TABLE agendamiento ADD CONSTRAINT localidad_agendamiento_fk
+FOREIGN KEY (id_localidad)
+REFERENCES localidad (id);
+ALTER TABLE agendamiento ADD CONSTRAINT persona_agendamiento_det_fk
+FOREIGN KEY (nro_documento)
+REFERENCES persona (nro_documento);
